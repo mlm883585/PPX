@@ -34,7 +34,7 @@
 
 - pnpm 8.x+ ([pnpm 安装教程](https://pnpm.io/zh/installation))
 
-- Python3.8-3.11 ([Python 安装教程](https://blog.pangao.vip/Python环境搭建及模块安装))
+- Python3.8-3.13 ([Python 安装教程](https://blog.pangao.vip/Python环境搭建及模块安装))
 
 #### 应用下载
 
@@ -578,6 +578,12 @@ m=备注迁移信息 pnpm run alembic
 - 在 Windows 系统下，请不要使用中文路径，否则可能会出现 cannot call null pointer pointer from cdata 'int(_)(void _, int)' 等错误信息。mac 系统无此问题。
 
 ## 历史版本
+
+#### V5.3.4
+
+- Python 的安装源由[中科大源](https://pypi.mirrors.ustc.edu.cn/simple/)改为[阿里源](https://mirrors.aliyun.com/pypi/simple/)。
+- pywebview 模块升级到 6.1
+- pyinstaller 模块升级到 6.12.0
 
 #### V5.3.3
 
