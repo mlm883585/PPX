@@ -1,0 +1,28 @@
+// ==========================================
+// 自定义样式变量
+// ==========================================
+
+// 主题色（如需自定义 Element Plus 主题，可修改这些变量）
+$--color-primary: #409eff;
+$--color-success: #67c23a;
+$--color-warning: #e6a23c;
+$--color-danger: #f56c6c;
+$--color-info: #909399;
+
+// 边框颜色
+$--border-color: #dcdfe6;
+$--border-color-light: #e4e7ed;
+
+// 文字颜色
+$--text-color-primary: #303133;
+$--text-color-regular: #606266;
+$--text-color-secondary: #909399;
+
+// 基础字体设置
+$--font-size-base: 14px;
+$--font-family: 'Helvetica Neue', Helvetica, 'PingFang SC', 'Hiragino Sans GB',
+  'Microsoft YaHei', '微软雅黑', Arial, sans-serif;
+
+// 边框圆角
+$--border-radius-base: 4px;
+$--border-radius-small: 2px;

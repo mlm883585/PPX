@@ -10,6 +10,14 @@ export default defineConfig({
       '@': fileURLToPath(new URL('./src', import.meta.url))
     }
   },
+  css: {
+    preprocessorOptions: {
+      scss: {
+        // 禁用 Sass 旧版 API 和 @import 警告
+        silenceDeprecations: ['legacy-js-api', 'import'],
+      }
+    }
+  },
   build: {
     sourcemap: false,
     chunkSizeWarningLimit: 1500, // 块大小警告的限制（以 kbs 为单位）
