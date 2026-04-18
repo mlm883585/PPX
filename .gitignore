@@ -1,18 +1,45 @@
+# 构建输出
 build
 dist
 gui/dist
+
+# 依赖目录
 gui/node_modules
-gui/pnpm-lock.yaml
 node_modules
+
+# 旧版 pnpm 锁文件（已改用 npm）
 pnpm-lock.yaml
+gui/pnpm-lock.yaml
+
+# Python 虚拟环境
 pyapp/pyenv
+
+# PyInstaller spec 文件（自动生成）
 pyapp/spec/*
 !pyapp/spec/getSpec.py
-.vscode/*
-.idea
+
+# Python 缓存
+__pycache__/
+*.py[cod]
+*.pyo
+
+# IDE 配置
+.vscode/
+.idea/
+
+# 系统文件
 .DS_Store
+Thumbs.db
 *.suo
 *.ntvs*
 *.njsproj
 *.sln
 *.sw?
+
+# AI 助手配置（不纳入版本管理）
+QWEN.md
+
+# 其他
+*.log
+.env
+*.local

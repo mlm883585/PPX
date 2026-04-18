@@ -1,3 +1,30 @@
+## 开源协议
+
+本项目采用 [GNU Affero General Public License Version 3 (AGPLv3)](LICENSE) 开源协议。
+
+**原作者：潘高 (pangao1990@qq.com)**
+
+**原项目地址：https://github.com/pangao1990/PPX**
+
+### 协议要点
+
+- ✅ 可以自由使用、学习、修改、分发本软件
+- ✅ 修改后的版本必须同样采用 AGPLv3 协议开源
+- ✅ 网络服务使用本软件时，必须向用户提供源代码
+- ❌ 不能将本软件闭源商业化
+- ⚠️ **必须保留原作者版权声明和协议声明**
+
+### 使用要求
+
+根据 AGPLv3 协议，您在使用或修改本项目时：
+
+1. 必须保留原作者的版权声明
+2. 修改后的文件需添加修改者信息和修改日期
+3. 分发时必须附带本协议副本
+4. 网络服务使用时必须提供源代码下载方式
+
+---
+
 ## 前言
 
 [**PPX**](https://blog.pangao.vip/docs-ppx/)（曾用名 vue-pywebview-pyinstaller）。第一个 **P** 表示 **P**ython ，当然，也可以表示 **P**angao（潘高，也就是我本人）。第二个 **P** 表示 **P**ywebview ，也可以表示 **P**yinstaller 。第三个 **X** 表示无限可能，指视图层可以使用 Vue、React、Angular、HTML 中的任意一种。
@@ -32,8 +59,6 @@
 
 - Node.js 16.14+ ([Node.js 安装教程](https://blog.pangao.vip/NodeJs安装教程/))
 
-- pnpm 8.x+ ([pnpm 安装教程](https://pnpm.io/zh/installation))
-
 - Python3.8-3.13 ([Python 安装教程](https://blog.pangao.vip/Python环境搭建及模块安装))
 
 #### 应用下载
@@ -57,11 +82,11 @@ cd PPX
 
 #### 初始化
 
-下载完毕后，运行初始化命令，程序会自动下载安装对应操作平台的所需依赖软件，如下所示：
+下载完毕后，运行初始化命令，程序会自动下载安装对应操作平台的所需依赖软件（使用淘宝 npm 镜像和阿里 pip 镜像），如下所示：
 
 ```shell
 # 初始化 (linux系统中需要输入sudo命令密码)
-pnpm run init
+npm run init
 ```
 
 没报错信息，则初始化完成，如下所示：
@@ -70,14 +95,14 @@ pnpm run init
 
 ![image](https://blog.pangao.vip/pic/JavaScript和Python打造跨平台客户端应用——vue-pywebview-pyinstaller-3.png)
 
-项目根目录多了一个 node_modules 文件夹和 pnpm-lock.yaml 文件，用于存放 pnpm 下载的包。
+项目根目录多了一个 node_modules 文件夹和 package-lock.json 文件，用于存放 npm 下载的包。
 
 ## 应用运行
 
 输入如下命令，即可启动应用：
 
 ```shell
-pnpm run start
+npm run start
 ```
 
 终端显示如下：
@@ -91,6 +116,36 @@ pnpm run start
 整体效果如下所示（gif 图片加载可能有点慢）：
 
 ![image](https://blog.pangao.vip/pic/JavaScript和Python打造跨平台客户端应用——vue-pywebview-pyinstaller-6.gif)
+
+#### 内网离线迁移
+
+内网无镜像源时，需先在外网准备依赖后拷贝到内网。
+
+**步骤 1：外网准备依赖**
+
+```shell
+npm run init
+```
+
+**步骤 2：打包以下目录**
+
+将以下目录完整拷贝到内网项目对应位置：
+
+- `node_modules/` - 根目录 Node 依赖
+- `gui/node_modules/` - 前端 Vue 依赖
+- `pyapp/pyenv/` - Python 虚拟环境
+
+**步骤 3：内网离线初始化**
+
+```shell
+npm run init:offline
+```
+
+**步骤 4：启动开发**
+
+```shell
+npm run start
+```
 
 ## 高级用法
 
@@ -267,16 +322,16 @@ window.pywebview.api.system_getAppInfo().then((res) => {
 ###########
 
 # 初始化
-pnpm run init
+npm run init
 
 # 开发模式
-pnpm run start
+npm run start
 
 # 正式打包
-pnpm run build
+npm run build
 
 # 预打包，带console，方便输出日志信息
-pnpm run pre
+npm run pre
 
 
 ###########
@@ -284,31 +339,42 @@ pnpm run pre
 ###########
 
 # 初始化，cef兼容模式
-pnpm run init:cef
+npm run init:cef
 
 # 开发模式，cef兼容模式【仅win系统】
-pnpm run start:cef
+npm run start:cef
 
 # 预打包，带console，cef兼容模式【仅win系统】
-pnpm run pre:cef
+npm run pre:cef
 
 # 预打包，带console，生成文件夹【仅win系统】
-pnpm run pre:folder
+npm run pre:folder
 
 # 预打包，带console，生成文件夹，cef兼容模式【仅win系统】
-pnpm run pre:folder:cef
+npm run pre:folder:cef
 
 # 正式打包，单个exe程序【仅win系统】
-pnpm run build:pure
+npm run build:pure
 
 # 正式打包，cef兼容模式【仅win系统】
-pnpm run build:cef
+npm run build:cef
 
 # 正式打包，生成文件夹【仅win系统】
-pnpm run build:folder
+npm run build:folder
 
 # 正式打包，生成文件夹，cef兼容模式【仅win系统】
-pnpm run build:folder:cef
+npm run build:folder:cef
+
+
+###########
+# 内网离线 #
+###########
+
+# 离线初始化（依赖已从外网拷贝）
+npm run init:offline
+
+# CEF模式离线初始化
+npm run init:cef:offline
 ```
 
 应用打包分为两步进行：
@@ -368,15 +434,15 @@ addModules = "('../../gui/dist', 'web'), ('../../static', 'static')"
 
 打包所需的数据均来自于 `pyapp/config/config.py` 配置文件。该文件几乎不需要修改。
 
-::: warning 注意  
-值得一提的是，安装包的唯一 `GUID` 。这个唯一编号取自于 `pyapp/config/config.py` 配置文件。在 `pnpm run init` 初始化之前，需要手动把 `pyapp/config/config.py` 配置文件中的 `appISSID` 置空，**PPX** 会自动生成一个唯一 `appISSID` ，生成后请勿修改！否则安装程序将会重复安装多个应用，而非覆盖安装。  
+::: warning 注意
+值得一提的是，安装包的唯一 `GUID` 。这个唯一编号取自于 `pyapp/config/config.py` 配置文件。在 `npm run init` 初始化之前，需要手动把 `pyapp/config/config.py` 配置文件中的 `appISSID` 置空，**PPX** 会自动生成一个唯一 `appISSID` ，生成后请勿修改！否则安装程序将会重复安装多个应用，而非覆盖安装。
 :::
 
 ```Python
 # pyapp/config/config.py
 
 # 初始化之前，请手动将 appISSID 设置为 ''
-appISSID = ''    # Inno Setup 打包唯一编号。在执行 pnpm run init 之前，请设置为空，程序会自动生成唯一编号，生成后请勿修改！！！
+appISSID = ''    # Inno Setup 打包唯一编号。在执行 npm run init 之前，请设置为空，程序会自动生成唯一编号，生成后请勿修改！！！
 ```
 
 ```Python
@@ -458,26 +524,13 @@ jobs:
         with:
           node-version: 20
 
-      - name: 安装pnpm
-        uses: pnpm/action-setup@v4
-        id: pnpm-install
-        with:
-          version: 9
-          run_install: false
-
-      - name: 获取pnpm仓库目录
-        id: pnpm-cache
-        shell: bash
-        run: |
-          echo "STORE_PATH=$(pnpm store path)" >> $GITHUB_OUTPUT
-
-      - name: 设置pnpm缓存
+      - name: 设置npm缓存
         uses: actions/cache@v4
         with:
-          path: ${{ steps.pnpm-cache.outputs.STORE_PATH }}
-          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+          path: ~/.npm
+          key: ${{ runner.os }}-npm-store-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
-            ${{ runner.os }}-pnpm-store-
+            ${{ runner.os }}-npm-store-
 
       - name: 安装Python3环境
         uses: actions/setup-python@v5
@@ -486,10 +539,10 @@ jobs:
           cache: "pip"
 
       - name: 初始化打包环境
-        run: pnpm run init
+        run: npm run init
 
       - name: 开始打包
-        run: pnpm run build
+        run: npm run build
 
       - name: 上传打包完成的程序包
         uses: actions/upload-artifact@v4
@@ -517,7 +570,7 @@ jobs:
   CEF 模式打包本质上是内置一个 Chrome v66 的浏览器，用于支持显示 HTML 页面。
 
   ```shell
-  pnpm run build:cef
+  npm run build:cef
   ```
 
 ### 数据库
@@ -551,7 +604,7 @@ jobs:
 - 重新安装 SQLite 数据库相关库
 
   ```
-  pnpm run init
+  npm run init
   ```
 
 #### SQLite 数据库迁移
@@ -562,7 +615,7 @@ jobs:
 
 ```
 # 迁移数据库
-m=备注迁移信息 pnpm run alembic
+m=备注迁移信息 npm run alembic
 ```
 
 ### HMR 原理
@@ -578,6 +631,13 @@ m=备注迁移信息 pnpm run alembic
 - 在 Windows 系统下，请不要使用中文路径，否则可能会出现 cannot call null pointer pointer from cdata 'int(_)(void _, int)' 等错误信息。mac 系统无此问题。
 
 ## 历史版本
+
+#### V5.3.5
+
+- 包管理工具由 pnpm 改回 npm，简化安装流程
+- 新增内网离线迁移支持（`npm run init:offline`）
+- npm 使用淘宝镜像源加速安装
+- 完善 .gitignore，添加 QWEN.md 等排除规则
 
 #### V5.3.4
 
@@ -629,7 +689,7 @@ m=备注迁移信息 pnpm run alembic
 #### V4.4.0
 
 - Python 的安装源由[清华源](https://pypi.tuna.tsinghua.edu.cn/simple)改为[中科大源](https://pypi.mirrors.ustc.edu.cn/simple/)。
-- 在 win 系统下，执行 `pnpm run build` 打包命令时，PPX 会先生成文件夹式程序（而非是先打包成一个 exe 程序），再打包成安装程序。经测试，打包成文件夹式程序比打包成一个 exe 程序的运行速度会更快些。
+- 在 win 系统下，执行 `npm run build` 打包命令时，PPX 会先生成文件夹式程序（而非是先打包成一个 exe 程序），再打包成安装程序。经测试，打包成文件夹式程序比打包成一个 exe 程序的运行速度会更快些。
 - 明确 `Config.codeDir` 为代码根目录，一般情况下，也是程序所在的绝对目录（但在 build:pure 打包成的独立 exe 程序中，codeDir 是执行代码的缓存根目录，而非程序所在的绝对目录）；明确 `Config.appDataDir` 为电脑上可持久使用的隐藏目录。更多细节请查看 `pyapp/config/config.py` 中的【系统配置信息】部分。
 
 #### V4.3.0
